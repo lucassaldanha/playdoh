@@ -1,6 +1,7 @@
 # Play-Doh
 A Java library to create test objects (randomly or based on template)
 
+
 ## Synopsis
 
 Have you ever struggle to write some simple test objects in your tests? Me too. With Play-Doh you can generate instantly test objects with random generated data in a blink of an eye.
