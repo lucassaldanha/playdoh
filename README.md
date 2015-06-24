@@ -29,7 +29,7 @@ public class Dummy {
 
 You create a Dummy class instance:
 ```java
-Dummy dummy = ObjectBuilder.getInstance().build(Dummy.class);
+Dummy dummy = Playdoh.build(Dummy.class);
 ```
 
 And you get this:

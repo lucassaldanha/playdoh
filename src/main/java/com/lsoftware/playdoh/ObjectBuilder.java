@@ -20,7 +20,7 @@ public final class ObjectBuilder {
 
     private static final ValueGeneratorFactory valueGeneratorFactory = new ValueGeneratorFactoryImpl();
 
-    public static ObjectBuilder getInstance() {
+    protected static ObjectBuilder getInstance() {
         if (SOLE_INSTANCE == null) {
             SOLE_INSTANCE = new ObjectBuilder();
         }
@@ -32,7 +32,7 @@ public final class ObjectBuilder {
         return this;
     }
 
-    public <T> T build(Class<T> type) {
+    protected  <T> T build(Class<T> type) {
         if(valueGeneratorFactory.existsForType(type)) {
             final TypeValueGenerator typeGenerator = valueGeneratorFactory.getFromType(type);
             if(type.isArray()) {

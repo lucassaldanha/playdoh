@@ -2,10 +2,10 @@ package com.lsoftware.playdoh;
 
 import com.lsoftware.playdoh.objects.Dummy;
 
-class ObjectBuilderExample {
+class PlaydohExample {
 
     public static void main(String[] args) {
-        final Dummy dummy = ObjectBuilder.getInstance().build(Dummy.class);
+        final Dummy dummy = Playdoh.build(Dummy.class);
         System.out.println(dummy);
     }
 
