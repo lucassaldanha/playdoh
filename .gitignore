@@ -15,3 +15,5 @@
 log/
 target/
 cache-store/
+pom.xml.releaseBackup
+release.properties
