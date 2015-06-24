@@ -24,8 +24,9 @@
 
     <scm>
         <url>https://github.com/lucassaldanha/playdoh</url>
-        <connection>scm:git:ssh://git@github.com:lucassaldanha/playdoh.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:lucassaldanha/playdoh.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com/lucassaldanha/playdoh.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/lucassaldanha/playdoh.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
