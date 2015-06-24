@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lsoftware</groupId>
+    <artifactId>playdoh</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Play-Doh</name>
+    <description>A Java library to create test objects (with random data or based on template)</description>
+    <url>https://github.com/lucassaldanha/playdoh</url>
+
+    <issueManagement>
+        <url>https://github.com/lucassaldanha/playdoh/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/lucassaldanha/playdoh</url>
+        <connection>scm:git:ssh://git@github.com:lucassaldanha/playdoh.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:lucassaldanha/playdoh.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>lucascrsaldanha@gmail.com</email>
+            <name>Lucas Saldanha</name>
+            <url>https://github.com/lucassaldanha</url>
+            <id>lucassaldanha</id>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <source.version>1.6</source.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${source.version}</source>
+                    <target>${source.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+    </dependencies>
+
+</project>
