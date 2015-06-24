@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lsoftware</groupId>
     <artifactId>playdoh</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RC1</version>
     <name>Play-Doh</name>
     <description>A Java library to create test objects (with random data or based on template)</description>
     <url>https://github.com/lucassaldanha/playdoh</url>
@@ -26,7 +25,7 @@
         <url>https://github.com/lucassaldanha/playdoh</url>
         <connection>scm:git:ssh://git@github.com/lucassaldanha/playdoh.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/lucassaldanha/playdoh.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>1.0-RC1</tag>
     </scm>
 
     <developers>
