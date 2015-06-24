@@ -1,6 +1,7 @@
 # Play-Doh
 A Java library to create test objects (randomly or based on template)
 
+[![Build Status](https://travis-ci.org/lucassaldanha/playdoh.svg?branch=master)](https://travis-ci.org/lucassaldanha/playdoh)
 
 ## Synopsis
 
