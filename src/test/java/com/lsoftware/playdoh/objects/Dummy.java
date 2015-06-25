@@ -14,13 +14,13 @@ public class Dummy {
         this.nestedDummy = nestedDummy;
     }
 
-    Dummy(){}
+    public Dummy(){}
 
     public int getIntegerValue() {
         return integerValue;
     }
 
-    void setIntegerValue(int integerValue) {
+    public void setIntegerValue(int integerValue) {
         this.integerValue = integerValue;
     }
 
@@ -47,5 +47,26 @@ public class Dummy {
                 ", stringValue='" + stringValue + '\'' +
                 ", nested=" + nestedDummy +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dummy)) return false;
+
+        Dummy dummy = (Dummy) o;
+
+        if (integerValue != null ? !integerValue.equals(dummy.integerValue) : dummy.integerValue != null) return false;
+        if (stringValue != null ? !stringValue.equals(dummy.stringValue) : dummy.stringValue != null) return false;
+        return !(nestedDummy != null ? !nestedDummy.equals(dummy.nestedDummy) : dummy.nestedDummy != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = integerValue != null ? integerValue.hashCode() : 0;
+        result = 31 * result + (stringValue != null ? stringValue.hashCode() : 0);
+        result = 31 * result + (nestedDummy != null ? nestedDummy.hashCode() : 0);
+        return result;
     }
 }

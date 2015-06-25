@@ -3,6 +3,7 @@ package com.lsoftware.playdoh;
 import com.lsoftware.playdoh.objects.*;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -52,5 +53,27 @@ public class PlaydohBuildTest {
     public void testBuildObjectWithEnum() {
         final ObjectWithEnum objectWithEnum = Playdoh.build(ObjectWithEnum.class);
         assertNotNull(objectWithEnum);
+    }
+
+    @Test
+    public void testBuildObjectWithSpecificValueOnField() {
+        Dummy dummy = Playdoh.builder(Dummy.class)
+                .with("stringValue", "test")
+                .with("integerValue", 123)
+                .build();
+
+        assertEquals("test", dummy.getStringValue());
+        assertEquals(123, dummy.getIntegerValue());
+    }
+
+    @Test
+    public void testBuildObjectWithSpecificNestedObject() {
+        NestedDummy nestedDummy = Playdoh.build(NestedDummy.class);
+
+        Dummy dummy = Playdoh.builder(Dummy.class)
+                .with("nestedDummy", nestedDummy)
+                .build();
+
+        assertEquals(nestedDummy, dummy.getNestedDummy());
     }
 }
