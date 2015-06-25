@@ -38,6 +38,19 @@ dummy.toString()
 > Dummy{integerValue=1463994319, stringValue='wtnUOzhmIs', nested=NestedDummy{intValue=1169020145, stringValue='DaVaSeMtrU'}}
 ```
 
+If you want to set some of the fields with specific values you should do this:
+```java
+Dummy dummy = Playdoh.builder(Dummy.class)
+                     .with("stringValue", "test")
+                     .build();
+```
+
+So you will have something like this:
+```
+dummy.toString()
+> Dummy{integerValue=1463994319, stringValue='test', nested=NestedDummy{intValue=1169020145, stringValue='DaVaSeMtrU'}}
+```
+
 ## Tests
 
 You need JDK > 1.6 and Maven to build the sources and run the tests.
