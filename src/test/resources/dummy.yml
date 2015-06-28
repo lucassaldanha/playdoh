@@ -1,0 +1,6 @@
+dummy1:
+  integerValue: 123
+  stringValue: abc
+  nestedDummy:
+    intValue: 321
+    stringValue: xyz

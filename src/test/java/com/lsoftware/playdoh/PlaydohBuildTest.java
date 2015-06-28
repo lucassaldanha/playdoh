@@ -103,6 +103,18 @@ public class PlaydohBuildTest {
         assertEquals(999, user1.getAge());
     }
 
+    @Test
+    public void testBuildNestedObjectFromFixture() {
+        Dummy dummy = Playdoh.build(Dummy.class, "dummy1");
+        assertNotNull(dummy);
+        assertNotNull(dummy.getNestedDummy());
+
+        assertEquals(123, dummy.getIntegerValue());
+        assertEquals("abc", dummy.getStringValue());
+        assertEquals(321, dummy.getNestedDummy().getIntValue());
+        assertEquals("xyz", dummy.getNestedDummy().getStringValue());
+    }
+
     @Test(expected = FixtureNotFoundException.class)
     public void testBuildObjectFromAbsentFixture() {
         Playdoh.build(ClassWithoutFixture.class, "aClass");
