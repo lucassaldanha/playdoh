@@ -51,6 +51,36 @@ dummy.toString()
 > Dummy{integerValue=1463994319, stringValue='test', nested=NestedDummy{intValue=1169020145, stringValue='DaVaSeMtrU'}}
 ```
 
+You can also create an object with the data specified in a fixture file (yml file). For example for an User class:
+```java
+public class User {
+    private String name;
+    private String email;
+    private int age;
+    ...
+```
+
+You must have an user.yml file in your classpath with the data for an user. Like this one:
+```yaml
+aUser:
+  name: Lucas Saldanha
+  email: lucas@example.com
+  age: 123
+```
+
+Then you can create an User with the data as specified in the fixture file:
+```java
+User user = Playdoh.build(User.class, "aUser");
+```
+
+And you get:
+```
+user.toString()
+> User{name='Lucas Saldanha', email='lucas@example.com', age=123}
+```
+
+You may have multiple user data defined in user.yml file. You choose which one will be used with the identifier passed as parameter to the `Playdoh.build(TYPE, IDENTIFIER)` method. Your fixture file must follow a snake-case convention. If you have a **HelloWorld.class** you must name you fixture file **hello_world.yml**.
+
 ## Tests
 
 You need JDK > 1.6 and Maven to build the sources and run the tests.
