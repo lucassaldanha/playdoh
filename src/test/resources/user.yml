@@ -1,0 +1,9 @@
+aUser:
+  name: Lucas Saldanha
+  email: lucas@example.com
+  age: 123
+
+anotherUser:
+  name: Abdi Abidu
+  email: aa@example.com
+  age: 999
