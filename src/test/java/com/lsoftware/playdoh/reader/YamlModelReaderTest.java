@@ -75,6 +75,14 @@ public class YamlModelReaderTest {
         reader.read(ClassWithoutFixture.class);
     }
 
+    @Test(expected = FixtureNotFoundException.class)
+    public void testReadWithIdentifierAbsentFileThrowsFixtureNotFoundException() throws FileNotFoundException {
+        when(mockFileUtils.readFileFromClasspath(eq("class_without_fixture.yml")))
+                .thenThrow(new FileNotFoundException());
+
+        reader.read("identifier", ClassWithoutFixture.class);
+    }
+
     @Test
     public void testMapReturnedFromReaderMatchDataInYml() throws Exception {
         mockFileUtilsToReturnFileInputStream(USERS_YAML_FILE);

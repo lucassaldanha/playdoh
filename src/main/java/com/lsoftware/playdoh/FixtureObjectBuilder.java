@@ -34,7 +34,4 @@ public class FixtureObjectBuilder {
         }
     }
 
-    public void setReader(ModelReader reader) {
-        this.reader = reader;
-    }
 }

@@ -76,4 +76,11 @@ public class PlaydohBuildTest {
 
         assertEquals(nestedDummy, dummy.getNestedDummy());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBuildObjectWithAbsentSpecificFieldName() {
+        Playdoh.builder(Dummy.class)
+                .with("absentValue", "test")
+                .build();
+    }
 }
