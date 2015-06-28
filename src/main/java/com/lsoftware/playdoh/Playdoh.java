@@ -1,6 +1,6 @@
 package com.lsoftware.playdoh;
 
-public class Playdoh {
+public final class Playdoh {
 
     /**
      * Builds an instance of the a class with random data
