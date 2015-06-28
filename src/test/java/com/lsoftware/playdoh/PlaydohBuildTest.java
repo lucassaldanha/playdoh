@@ -1,5 +1,6 @@
 package com.lsoftware.playdoh;
 
+import com.lsoftware.playdoh.exception.FixtureNotFoundException;
 import com.lsoftware.playdoh.objects.*;
 import org.junit.Test;
 
@@ -82,5 +83,28 @@ public class PlaydohBuildTest {
         Playdoh.builder(Dummy.class)
                 .with("absentValue", "test")
                 .build();
+    }
+
+    @Test
+    public void testBuildObjectFromFixture() {
+        User user1 = Playdoh.build(User.class, "aUser");
+        assertNotNull(user1);
+        assertEquals("Lucas Saldanha", user1.getName());
+        assertEquals("lucas@example.com", user1.getEmail());
+        assertEquals(123, user1.getAge());
+    }
+
+    @Test
+    public void testBuildOtherObjectFromFixture() {
+        User user1 = Playdoh.build(User.class, "anotherUser");
+        assertNotNull(user1);
+        assertEquals("Abdi Abidu", user1.getName());
+        assertEquals("aa@example.com", user1.getEmail());
+        assertEquals(999, user1.getAge());
+    }
+
+    @Test(expected = FixtureNotFoundException.class)
+    public void testBuildObjectFromAbsentFixture() {
+        Playdoh.build(ClassWithoutFixture.class, "aClass");
     }
 }
