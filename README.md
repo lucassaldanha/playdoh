@@ -81,6 +81,12 @@ user.toString()
 
 You may have multiple user data defined in user.yml file. You choose which one will be used with the identifier passed as parameter to the `Playdoh.build(TYPE, IDENTIFIER)` method. Your fixture file must follow a snake-case convention. If you have a **HelloWorld.class** you must name you fixture file **hello_world.yml**.
 
+## Limitations
+
+In current state if your model object has a interface type field from Java Collectoins (like Set or Map) if you use Playdoh to generate random data (not from fixtures) it won't fill those fields with random data, it will just create an instance of the Set or Map (using a default implementation for those interfaces).
+
+If you need those fields filled with data I suggest you to use Playdoh with a fixture file to create the object (look at the tests to see some examples).
+
 ## Tests
 
 You need JDK > 1.6 and Maven to build the sources and run the tests.
