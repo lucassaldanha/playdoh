@@ -4,9 +4,7 @@ import com.lsoftware.playdoh.exception.FixtureNotFoundException;
 import com.lsoftware.playdoh.objects.*;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlaydohBuildTest {
 
@@ -54,6 +52,20 @@ public class PlaydohBuildTest {
     public void testBuildObjectWithEnum() {
         final ObjectWithEnum objectWithEnum = Playdoh.build(ObjectWithEnum.class);
         assertNotNull(objectWithEnum);
+    }
+
+    @Test
+    public void testBuildObjectWithMap() {
+        ObjectWithStringObjectMap objectWithMap = Playdoh.build(ObjectWithStringObjectMap.class);
+        assertNotNull(objectWithMap);
+        assertEquals(0, objectWithMap.getMap().size());
+    }
+
+    @Test
+    public void testBuildObjectWithCollection() {
+        ObjectWithCollection objectWithCollection = Playdoh.build(ObjectWithCollection.class);
+        assertNotNull(objectWithCollection);
+        assertEquals(0, objectWithCollection.getCollection().size());
     }
 
     @Test
