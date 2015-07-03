@@ -3,20 +3,21 @@ package com.lsoftware.playdoh;
 import com.lsoftware.playdoh.generator.TypeValueGenerator;
 import com.lsoftware.playdoh.generator.ValueGeneratorFactory;
 import com.lsoftware.playdoh.generator.ValueGeneratorFactoryImpl;
+import com.lsoftware.playdoh.resolver.InterfaceResolver;
+import com.lsoftware.playdoh.resolver.InterfaceResolverImpl;
 import com.lsoftware.playdoh.util.Primitives;
 import com.lsoftware.playdoh.util.ReflectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 import java.util.Random;
 
 @SuppressWarnings("unchecked")
 public final class ObjectBuilderImpl implements ObjectBuilder {
 
     private static final ValueGeneratorFactory valueGeneratorFactory = new ValueGeneratorFactoryImpl();
+
+    private static final InterfaceResolver interfaceResolver = new InterfaceResolverImpl();
 
     private Class<?> type;
     private Object object;
@@ -78,9 +79,14 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
         } else if(type.isEnum()) {
             return buildEnum(type);
         } else {
-            Object o = createInstance(type);
-            populateFields(o);
-            return (T) o;
+            if(Modifier.isInterface(type.getModifiers())) {
+                type = interfaceResolver.concreteType(type);
+                return interfaceResolver.populate(type);
+            } else {
+                Object o = createInstance(type);
+                populateFields(o);
+                return (T) o;
+            }
         }
     }
 
@@ -91,6 +97,10 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
 
     private Object createInstance(Class type) {
         try {
+            if(Modifier.isInterface(type.getModifiers()) || Modifier.isAbstract(type.getModifiers())) {
+                throw new IllegalStateException("Cannot find a Generator for the " + type.getSimpleName() + " interface");
+            }
+
             Constructor constructor = type.getDeclaredConstructor();
             constructor.setAccessible(true);
             return constructor.newInstance();

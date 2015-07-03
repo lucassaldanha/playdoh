@@ -5,10 +5,9 @@ import org.junit.Test;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class InterfaceResolverImplTest {
 
@@ -59,13 +58,24 @@ public class InterfaceResolverImplTest {
 
             @Override
             public Class getConcreteType(Class type) {
-                if(type.equals(UnmappedInterface.class)) {
+                if (type.equals(UnmappedInterface.class)) {
                     return ConcreteUnmappedInterface.class;
                 } else {
                     throw new RuntimeException();
                 }
             }
         });
+    }
+
+    @Test
+    public void testPopulateMethodReturnsConcreteInstance() {
+        HashSet object = interfaceResolver.populate(HashSet.class);
+        assertNotNull(object);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testPopulateMethodOnInterfacesThrowsError() {
+        interfaceResolver.populate(Set.class);
     }
 
     public interface UnmappedInterface {

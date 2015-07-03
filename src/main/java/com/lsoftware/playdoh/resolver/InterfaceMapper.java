@@ -1,9 +1,9 @@
 package com.lsoftware.playdoh.resolver;
 
-public interface InterfaceMapper {
+public interface InterfaceMapper<I> {
 
     boolean apply(Class type);
 
-    Class getConcreteType(Class type);
+    Class getConcreteType(Class<I> type);
 
 }

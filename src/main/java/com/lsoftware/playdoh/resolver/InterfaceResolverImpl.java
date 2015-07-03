@@ -1,7 +1,6 @@
 package com.lsoftware.playdoh.resolver;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class InterfaceResolverImpl implements InterfaceResolver {
 
@@ -24,6 +23,20 @@ public class InterfaceResolverImpl implements InterfaceResolver {
         }
 
         throw new IllegalStateException("Unable to find a interface mapper for " + interfaceType.getSimpleName() + " type");
+    }
+
+    @Override
+    public <T> T populate(Class<T> concreteType) {
+        /*
+            Populate method doesn't populate fields yet (eg. Collections and Maps)
+         */
+        try {
+            return concreteType.newInstance();
+        } catch (InstantiationException e) {
+            throw new IllegalStateException("Error creating instance of type " + concreteType.getSimpleName());
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException("Error creating instance of type " + concreteType.getSimpleName());
+        }
     }
 
     public void addMapper(InterfaceMapper mapper) {
