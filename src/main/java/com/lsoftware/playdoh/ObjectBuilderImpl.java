@@ -34,7 +34,7 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
         final Method setter = findSetter(object.getClass(), field);
 
         if(setter == null) {
-            throw new IllegalStateException("Unable to find setter for field " + field.getName()
+            throw new IllegalArgumentException("Unable to find setter for field " + field.getName()
                     + " on object of type " + type.getClass().getName());
         }
 
