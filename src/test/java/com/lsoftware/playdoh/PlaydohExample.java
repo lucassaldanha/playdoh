@@ -1,7 +1,7 @@
 package com.lsoftware.playdoh;
 
-import com.lsoftware.playdoh.objects.Dummy;
-import com.lsoftware.playdoh.objects.User;
+import com.lsoftware.playdoh.objects.models.Dummy;
+import com.lsoftware.playdoh.objects.models.User;
 
 class PlaydohExample {
 

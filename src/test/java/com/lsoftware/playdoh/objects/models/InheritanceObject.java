@@ -1,4 +1,4 @@
-package com.lsoftware.playdoh.objects;
+package com.lsoftware.playdoh.objects.models;
 
 public class InheritanceObject extends ParentObject {
 

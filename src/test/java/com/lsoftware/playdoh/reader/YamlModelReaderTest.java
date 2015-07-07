@@ -1,9 +1,9 @@
 package com.lsoftware.playdoh.reader;
 
 import com.lsoftware.playdoh.exception.FixtureNotFoundException;
-import com.lsoftware.playdoh.objects.ClassWithoutFixture;
-import com.lsoftware.playdoh.objects.NestedDummy;
-import com.lsoftware.playdoh.objects.User;
+import com.lsoftware.playdoh.objects.models.ClassWithoutFixture;
+import com.lsoftware.playdoh.objects.models.NestedDummy;
+import com.lsoftware.playdoh.objects.models.User;
 import com.lsoftware.playdoh.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;

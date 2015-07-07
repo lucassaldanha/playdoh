@@ -1,6 +1,9 @@
 package com.lsoftware.playdoh;
 
-import com.lsoftware.playdoh.objects.*;
+import com.lsoftware.playdoh.objects.collections.ObjectWithArray;
+import com.lsoftware.playdoh.objects.collections.ObjectWithCollection;
+import com.lsoftware.playdoh.objects.collections.ObjectWithStringObjectMap;
+import com.lsoftware.playdoh.objects.models.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

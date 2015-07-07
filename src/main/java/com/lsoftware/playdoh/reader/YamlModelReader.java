@@ -4,6 +4,7 @@ import com.lsoftware.playdoh.exception.FixtureNotFoundException;
 import com.lsoftware.playdoh.util.CaseUtils;
 import com.lsoftware.playdoh.util.FileUtils;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.ConstructorException;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -50,6 +51,8 @@ public class YamlModelReader implements ModelReader {
             return yaml.loadAs(yaml.dump(obj), type);
         } catch (FileNotFoundException e) {
             throw new FixtureNotFoundException(getYamlFilename(type));
+        } catch(ConstructorException e) {
+            throw new IllegalArgumentException(e);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.lsoftware.playdoh.objects;
+package com.lsoftware.playdoh.objects.collections;
 
 import java.util.Collection;
 

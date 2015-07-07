@@ -1,0 +1,11 @@
+intCollection:
+  collection:
+    - 1
+    - 2
+    - 3
+
+stringCollection:
+  collection:
+    - string1
+    - string2
+    - string3

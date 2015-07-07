@@ -1,8 +1,8 @@
 package com.lsoftware.playdoh;
 
-import com.lsoftware.playdoh.objects.Dummy;
-import com.lsoftware.playdoh.objects.NestedDummy;
-import com.lsoftware.playdoh.objects.ObjectWithInaccessibleFields;
+import com.lsoftware.playdoh.objects.models.Dummy;
+import com.lsoftware.playdoh.objects.models.NestedDummy;
+import com.lsoftware.playdoh.objects.models.ObjectWithInaccessibleFields;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

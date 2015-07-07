@@ -1,4 +1,4 @@
-package com.lsoftware.playdoh.objects;
+package com.lsoftware.playdoh.objects.collections;
 
 public class ObjectWithArray {
 
