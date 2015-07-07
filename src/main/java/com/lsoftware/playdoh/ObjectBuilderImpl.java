@@ -33,6 +33,11 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
         final Field field = searchForFieldByName(name);
         final Method setter = findSetter(object.getClass(), field);
 
+        if(setter == null) {
+            throw new IllegalStateException("Unable to find setter for field " + field.getName()
+                    + " on object of type " + type.getClass().getName());
+        }
+
         setValueUsingSetter(value, setter);
 
         return this;
@@ -116,8 +121,10 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
         final Class<?> clazz = object.getClass();
         for (Field field : ReflectionUtils.getFieldsUpHierarchy(object.getClass())) {
             final Method setter = findSetter(clazz, field);
-            setter.setAccessible(true);
-            useSetterToPopulateField(object, field, setter);
+            if(setter != null) {
+                setter.setAccessible(true);
+                useSetterToPopulateField(object, field, setter);
+            }
         }
     }
 
@@ -168,8 +175,7 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
             }
         }
 
-        throw new IllegalStateException("Unable to find setter for field " + field.getName()
-                + " on object of type " + clazz.getName());
+        return null;
     }
 
 

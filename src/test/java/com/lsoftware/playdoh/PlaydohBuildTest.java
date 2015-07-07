@@ -138,4 +138,10 @@ public class PlaydohBuildTest {
     public void testBuildObjectFromAbsentFixture() {
         Playdoh.build(ClassWithoutFixture.class, "aClass");
     }
+
+    @Test
+    public void testBuildObjectWithInaccessibleFieldsShouldSucceed() {
+        ObjectWithInaccessibleFields object = Playdoh.build(ObjectWithInaccessibleFields.class);
+        assertNotNull(object);
+    }
 }
