@@ -8,7 +8,10 @@ import com.lsoftware.playdoh.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.mockito.Mockito;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.ConstructorException;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -104,4 +107,12 @@ public class YamlModelReaderTest {
         assertEquals(2, users.size());
     }
 
+    @Test
+    public void testYamlThrowsConstructorExceptionShouldThrowIllegalArgumentException() {
+        Yaml mockYaml = mock(Yaml.class);
+        when(mockYaml.loadAs(anyString(), Matchers.<Class<Object>>anyObject())).thenThrow(ConstructorException.class);
+        reader.setYaml(mockYaml);
+
+        reader.read(User.class);
+    }
 }
