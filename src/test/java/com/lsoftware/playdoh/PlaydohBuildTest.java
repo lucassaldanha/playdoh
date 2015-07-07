@@ -127,6 +127,13 @@ public class PlaydohBuildTest {
         assertEquals("xyz", dummy.getNestedDummy().getStringValue());
     }
 
+    @Test
+    public void testBuildObjectWithEnumFromFixture() {
+        ObjectWithEnum objectWithEnum = Playdoh.build(ObjectWithEnum.class, "objectWithEnum");
+        assertNotNull(objectWithEnum);
+        assertEquals(ObjectWithEnum.AnEnum.X, objectWithEnum.getAnEnum());
+    }
+
     @Test(expected = FixtureNotFoundException.class)
     public void testBuildObjectFromAbsentFixture() {
         Playdoh.build(ClassWithoutFixture.class, "aClass");

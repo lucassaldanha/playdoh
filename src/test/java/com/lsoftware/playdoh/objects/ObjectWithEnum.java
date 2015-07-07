@@ -7,6 +7,10 @@ public class ObjectWithEnum {
     public ObjectWithEnum() {
     }
 
+    public AnEnum getAnEnum() {
+        return anEnum;
+    }
+
     public void setAnEnum(AnEnum anEnum) {
         this.anEnum = anEnum;
     }
