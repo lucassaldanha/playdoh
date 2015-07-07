@@ -85,7 +85,7 @@ You may have multiple user data defined in user.yml file. You choose which one w
 
 In current state if your model object has a interface type field from Java Collections (like Set or Map) if you use Playdoh to generate random data (not from fixtures) it won't fill those fields with random data, it will just create an instance of the Set or Map (using a default implementation for those interfaces).
 
-If you need those fields filled with data I suggest you to use Playdoh with a fixture file to create the object. See WIKI_PAGE for usage examples.
+If you need those fields filled with data I suggest you to use Playdoh with a fixture file to create the object. See [Creating objets with fixtures wiki page](https://github.com/lucassaldanha/playdoh/wiki/Creating-objects-with-Fixtures) for usage examples.
 
 ## Tests
 
