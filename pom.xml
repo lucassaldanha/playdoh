@@ -3,7 +3,7 @@
 
     <groupId>com.github.lucassaldanha</groupId>
     <artifactId>playdoh</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>Play-Doh</name>
     <description>A Java library to create test objects (with random data or based on fixture files)</description>
     <url>https://github.com/lucassaldanha/playdoh</url>
@@ -25,7 +25,7 @@
         <url>https://github.com/lucassaldanha/playdoh</url>
         <connection>scm:git:git@github.com/lucassaldanha/playdoh.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/lucassaldanha/playdoh.git</developerConnection>
-        <tag>1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
