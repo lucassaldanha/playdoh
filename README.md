@@ -3,6 +3,15 @@ A Java library to create test objects (randomly or based on template)
 
 [![Build Status](https://travis-ci.org/lucassaldanha/playdoh.svg?branch=master)](https://travis-ci.org/lucassaldanha/playdoh) [![Coverage Status](https://coveralls.io/repos/lucassaldanha/playdoh/badge.svg)](https://coveralls.io/r/lucassaldanha/playdoh) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.lucassaldanha/playdoh/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.lucassaldanha/playdoh)
 
+**Maven dependency**
+```xml
+<dependency>
+    <groupId>com.github.lucassaldanha</groupId>
+    <artifactId>playdoh</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
 ## Synopsis
 
 Have you ever struggle to write some simple test objects in your tests? Me too. With Play-Doh you can generate instantly test objects with random generated data in a blink of an eye.
