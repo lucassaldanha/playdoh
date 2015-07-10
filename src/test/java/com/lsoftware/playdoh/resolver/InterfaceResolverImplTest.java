@@ -78,6 +78,11 @@ public class InterfaceResolverImplTest {
         interfaceResolver.populate(Set.class);
     }
 
+    @Test(expected = IllegalStateException.class)
+    public void testPopulateMethodThrowingIllegalAccessThenShouldThrowIllegalState() {
+        interfaceResolver.populate(Class.class);
+    }
+
     public interface UnmappedInterface {
     }
 

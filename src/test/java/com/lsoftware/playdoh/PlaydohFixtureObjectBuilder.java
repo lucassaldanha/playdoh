@@ -8,15 +8,12 @@ import com.lsoftware.playdoh.objects.models.ObjectWithEnum;
 import com.lsoftware.playdoh.objects.models.User;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlaydohFixtureObjectBuilder {
 
@@ -142,28 +139,6 @@ public class PlaydohFixtureObjectBuilder {
         assertTrue(map.containsValue("value1"));
         assertTrue(map.containsValue("value2"));
         assertTrue(map.containsValue("value3"));
-    }
-
-    /*
-        Testing FixtureObjectBuilder directly
-     */
-
-    @Test
-    public void testBuildUserObjectFromFixture() throws FileNotFoundException {
-        FixtureObjectBuilder builder = new FixtureObjectBuilder("aUser", User.class);
-        User user = builder.build();
-        assertEquals("Lucas Saldanha", user.getName());
-        assertEquals("lucas@example.com", user.getEmail());
-        assertEquals(123, user.getAge());
-    }
-
-    @Test
-    public void testBuildFirstUserFromCollectionFromFixture() throws FileNotFoundException {
-        FixtureObjectBuilder builder = new FixtureObjectBuilder(User.class);
-        User user = builder.build();
-        assertEquals("Lucas Saldanha", user.getName());
-        assertEquals("lucas@example.com", user.getEmail());
-        assertEquals(123, user.getAge());
     }
 
 }
