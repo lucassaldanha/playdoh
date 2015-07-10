@@ -1,5 +1,5 @@
 # Play-Doh
-A Java library to create test objects (randomly or based on template)
+A Java library to create test objects (from fixture files or with random data)
 
 [![Build Status](https://travis-ci.org/lucassaldanha/playdoh.svg?branch=master)](https://travis-ci.org/lucassaldanha/playdoh) [![Coverage Status](https://coveralls.io/repos/lucassaldanha/playdoh/badge.svg)](https://coveralls.io/r/lucassaldanha/playdoh) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.lucassaldanha/playdoh/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.lucassaldanha/playdoh)
 
