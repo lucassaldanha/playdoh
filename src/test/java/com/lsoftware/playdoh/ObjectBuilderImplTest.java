@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 public class ObjectBuilderImplTest {
 
     @Test
-    public void testCrateObjectWithPublicAccessorMethodsShouldSucceed() throws Exception {
+    public void testCreateObjectWithPublicAccessorMethodsShouldSucceed() throws Exception {
         OnlyPublicFields obj = Playdoh.build(OnlyPublicFields.class);
         assertNotNull(obj);
         assertNotNull(obj.getS());
@@ -16,25 +16,25 @@ public class ObjectBuilderImplTest {
     }
 
     @Test
-    public void testCrateObjectWithProtectedAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithProtectedAccessorMethodsShouldFail() throws Exception {
         OnlyProtectedFields obj = Playdoh.build(OnlyProtectedFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCrateObjectWithPackageAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithPackageAccessorMethodsShouldFail() throws Exception {
         OnlyPackageFields obj = Playdoh.build(OnlyPackageFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCrateObjectWithPrivateAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithPrivateAccessorMethodsShouldFail() throws Exception {
         OnlyPrivateFields obj = Playdoh.build(OnlyPrivateFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCrateObjectWithPrivateConstructorShouldFail() throws Exception {
+    public void testCreateObjectWithPrivateConstructorShouldFail() throws Exception {
         Playdoh.build(OnlyPrivateConstructor.class);
     }
 
