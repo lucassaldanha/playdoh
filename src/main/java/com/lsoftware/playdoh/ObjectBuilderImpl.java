@@ -142,7 +142,7 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
                 setter.invoke(object, value);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Unable to set with to field " + field.getName()
+            throw new RuntimeException("Unable to set value to field " + field.getName()
                     + " on object of type " + object.getClass().getName(), e);
         }
     }
