@@ -16,25 +16,25 @@ public class ObjectBuilderImplTest {
     }
 
     @Test
-    public void testCreateObjectWithProtectedAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithProtectedAccessorMethodsShouldSucceed() throws Exception {
         OnlyProtectedFields obj = Playdoh.build(OnlyProtectedFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCreateObjectWithPackageAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithPackageAccessorMethodsShouldSucceed() throws Exception {
         OnlyPackageFields obj = Playdoh.build(OnlyPackageFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCreateObjectWithPrivateAccessorMethodsShouldFail() throws Exception {
+    public void testCreateObjectWithPrivateAccessorMethodsShouldSucceed() throws Exception {
         OnlyPrivateFields obj = Playdoh.build(OnlyPrivateFields.class);
         assertNotNull(obj);
     }
 
     @Test
-    public void testCreateObjectWithPrivateConstructorShouldFail() throws Exception {
+    public void testCreateObjectWithPrivateConstructorShouldSucceed() throws Exception {
         Playdoh.build(OnlyPrivateConstructor.class);
     }
 

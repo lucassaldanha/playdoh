@@ -56,6 +56,7 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
 
     private void setValueUsingSetter(Object value, Method setter) {
         try {
+            setter.setAccessible(true);
             setter.invoke(object, value);
         } catch (IllegalAccessException e) {
             throw new IllegalStateException("Unable to set call " + setter.getName() + ". Is this method public or protected?");
@@ -139,6 +140,7 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
             if(Primitives.isPrimitiveArray(field.getType())) {
                 setPrimitiveArrayValue(object, field, setter, value);
             } else {
+                setter.setAccessible(true);
                 setter.invoke(object, value);
             }
         } catch (Exception e) {

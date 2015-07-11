@@ -141,4 +141,8 @@ public class PlaydohFixtureObjectBuilder {
         assertTrue(map.containsValue("value3"));
     }
 
+    public void testBuildObjectWithoutSetterFromFixture() {
+
+    }
+
 }
