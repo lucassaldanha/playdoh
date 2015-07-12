@@ -2,6 +2,8 @@ package com.lsoftware.playdoh;
 
 public final class Playdoh {
 
+    private static PlaydohConfiguration configuration = PlaydohConfiguration.getInstance();
+
     /**
      * Builds an instance of a class with random data
      * @param type The class to be instanced
@@ -29,7 +31,7 @@ public final class Playdoh {
      * @return a object with data corresponding the yml fixture file
      */
     public static <T> T build(Class<T> type, String name) {
-        return new FixtureObjectBuilder(name, type).build();
+        return configuration.getFixtureObjectBuilder().build(type, name);
     }
 
 }
