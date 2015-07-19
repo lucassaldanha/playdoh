@@ -1,28 +1,31 @@
 package com.lsoftware.playdoh;
 
-import com.lsoftware.playdoh.reader.ModelReader;
 import com.lsoftware.playdoh.reader.YamlModelReader;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class YamlFixtureObjectBuilder implements FixtureObjectBuilder {
+public class YamlFixtureObjectBuilder extends AbstractFixtureObjectBuilder {
 
-    private ModelReader reader = new YamlModelReader();
+    protected YamlFixtureObjectBuilder() {
+        super(new YamlModelReader());
+    }
 
-    @SuppressWarnings("unchecked")
-    public <T> T build(Class type) {
+    @Override @SuppressWarnings("unchecked")
+    public <T> T doBuild(Class type) {
         Map objects = reader.read(type);
         Map.Entry entry = (Map.Entry) objects.entrySet().iterator().next();
         return (T) entry.getValue();
     }
 
     @Override
-    public <T> T build(Class type, String id) {
+    public <T> T doBuild(Class type, String id) {
         return (T) reader.read(id, type);
     }
 
     @Override
-    public <T> List<T> buildAll(Class type) {
+    public <T> List<T> doBuildAll(Class type) {
         Map objects = reader.read(type);
         return new ArrayList<T>(objects.values());
     }
