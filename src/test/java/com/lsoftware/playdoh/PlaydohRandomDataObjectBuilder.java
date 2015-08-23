@@ -78,4 +78,10 @@ public class PlaydohRandomDataObjectBuilder {
         assertNotNull(object);
     }
 
+    @Test
+    public void testBuildObjectWithSelfReferenceShouldSucceed() {
+        ClassWithSelfReference object = Playdoh.build(ClassWithSelfReference.class);
+        assertNotNull(object);
+    }
+
 }

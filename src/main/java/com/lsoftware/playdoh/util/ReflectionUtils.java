@@ -15,7 +15,12 @@ public class ReflectionUtils {
     private static Iterable<Field> getFieldsUpHierarchy(Class<?> startClass, Class<?> exclusiveParent) {
 
         List<Field> currentClassFields = new ArrayList<Field>();
-        currentClassFields.addAll(Arrays.asList(startClass.getDeclaredFields()));
+        Field[] declaredFields = startClass.getDeclaredFields();
+        for (Field declaredField : declaredFields) {
+            if(!startClass.equals(declaredField.getType())) {
+                currentClassFields.add(declaredField);
+            }
+        }
 
         Class<?> parentClass = startClass.getSuperclass();
 
