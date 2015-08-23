@@ -8,7 +8,7 @@ A Java library to create test objects (from fixture files or with random data)
 <dependency>
     <groupId>com.github.lucassaldanha</groupId>
     <artifactId>playdoh</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
