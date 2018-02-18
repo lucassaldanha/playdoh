@@ -2,7 +2,7 @@ package com.lsoftware.playdoh;
 
 import com.lsoftware.playdoh.objects.models.Dummy;
 import com.lsoftware.playdoh.objects.models.NestedDummy;
-import com.lsoftware.playdoh.objects.unsupported.ClassWithoutSetter;
+import com.lsoftware.playdoh.objects.models.ClassWithoutSetter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

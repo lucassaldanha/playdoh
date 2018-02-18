@@ -4,11 +4,11 @@ import com.lsoftware.playdoh.objects.collections.ObjectWithArray;
 import com.lsoftware.playdoh.objects.collections.ObjectWithCollection;
 import com.lsoftware.playdoh.objects.collections.ObjectWithStringObjectMap;
 import com.lsoftware.playdoh.objects.models.*;
+import com.lsoftware.playdoh.objects.models.ClassWithoutDefaultConstructor;
+import com.lsoftware.playdoh.objects.models.ClassWithoutSetter;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlaydohRandomDataObjectBuilder {
 
@@ -81,6 +81,20 @@ public class PlaydohRandomDataObjectBuilder {
     @Test
     public void testBuildObjectWithSelfReferenceShouldSucceed() {
         ClassWithSelfReference object = Playdoh.build(ClassWithSelfReference.class);
+        assertNotNull(object);
+    }
+
+    @Test
+    public void testBuildObjectWithNoSetterShouldSucceedWithNoValueForField(){
+        ClassWithoutSetter object = Playdoh.build(ClassWithoutSetter.class);
+        assertNotNull(object);
+        assertNull(object.getField());
+        assertNotNull(object.getAnotherField());
+    }
+
+    @Test
+    public void testBuildObjectWithNoDefaultConstructorShouldSucceed(){
+        ClassWithoutDefaultConstructor object = Playdoh.build(ClassWithoutDefaultConstructor.class);
         assertNotNull(object);
     }
 

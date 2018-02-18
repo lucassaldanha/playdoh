@@ -10,6 +10,8 @@ import com.lsoftware.playdoh.util.ReflectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("unchecked")
@@ -107,12 +109,20 @@ public final class ObjectBuilderImpl implements ObjectBuilder {
                 throw new IllegalStateException("Cannot find a Generator for the " + type.getSimpleName() + " interface");
             }
 
-            Constructor constructor = type.getDeclaredConstructor();
+
+            Constructor constructor = type.getDeclaredConstructors()[0];
+            Class<?>[] parameterTypes = constructor.getParameterTypes();
             constructor.setAccessible(true);
-            return constructor.newInstance();
-        } catch (NoSuchMethodException e) {
-            throw new IllegalStateException("Unable to instantiate object of type " + type.getName()
-                    + " (Does the object have a default constructor?)");
+            if (parameterTypes.length == 0) {
+                return constructor.newInstance();
+            } else {
+                List<Object> params = new ArrayList<Object>();
+                for (Class<?> pType : constructor.getParameterTypes()) {
+                    params.add(doBuild(pType));
+                }
+                return constructor.newInstance(params.toArray());
+            }
+
         } catch (Exception e) {
             throw new RuntimeException("Unable to instantiate object of type " + type.getName(), e);
         }
