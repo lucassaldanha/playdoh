@@ -2,6 +2,8 @@ package com.lsoftware.playdoh.generator;
 
 import com.lsoftware.playdoh.util.Primitives;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +19,8 @@ public class ValueGeneratorFactoryImpl implements ValueGeneratorFactory {
         put(    Boolean.class,      new BooleanGenerator());
         put(    Character.class,    new CharacterGenerator());
         put(    String.class,       new StringGenerator());
+        put(    LocalDate.class,    new LocalDateGenerator());
+        put(    LocalDateTime.class,new LocalDateTimeGenerator());
     }};
 
     public TypeValueGenerator getFromType(Class type) {
